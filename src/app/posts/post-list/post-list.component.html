@@ -1,0 +1,25 @@
+<!-- <div *ngFor="let posts of posts">
+    <h2 (click)="onTitleClick(posts.id)">{{posts.title}}</h2>
+    <p>{{posts.content}}</p>
+    <p>{{posts.id}}</p>
+
+   </div>
+ -->
+
+
+   <section>
+       <mat-card *ngFor="let posts of posts">
+       <mat-card-content (click)="onTitleClick(posts.id)"   >
+           <img src="{{posts.image}}" alt="{{posts.title}}" >
+           <h2>{{posts.title}}</h2>
+           <p><small>Posted By {{posts.author}} 
+               <!-- &bull; {{posts.published}} -->
+            </small></p>
+       </mat-card-content>
+       <mat-card-actions align="end" *ngIf ="auth.currentUserId === posts.authorId"> 
+           <button mat-icon-button (click)="delete(posts.id)">
+               <mat-icon>delete</mat-icon>
+           </button>
+       </mat-card-actions>
+    </mat-card>
+   </section>
